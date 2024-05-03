@@ -1,31 +1,33 @@
-import { useCallback, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { HandleSearchFunction, IWeatherData } from './types';
-import axios from 'axios';
 import CitySearch from './CitySearch';
 import WeatherDisplay from './WeatherDisplay';
-import { apiEndpoint, apiKey } from './api';
+import { fetchWeatherDataCity } from './WeatherCity';
+import { fetchWeatherByCoords } from './WeatherCoords';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const fetchWeatherData = useCallback(
-    async (city: string) => {
+  useEffect(() => {
+    const fetchWeatherByGeolocation = async () => {
       try {
-        const response = await axios.get(
-          `${apiEndpoint}weather?q=${city}&appid=${apiKey}&units=metric`,
-        );
-        return response.data;
+        navigator.geolocation.getCurrentPosition(async (position) => {
+          const { latitude, longitude } = position.coords;
+          const [currentWeather] = await Promise.all([fetchWeatherByCoords(latitude, longitude)]);
+          setWeatherData(currentWeather);
+          setIsLoading(true);
+        });
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Error fetching weather by geolocation:', error);
       }
-    },
-    [apiEndpoint, apiKey],
-  );
+    };
+    fetchWeatherByGeolocation();
+  }, [fetchWeatherByCoords]);
 
   const handleSearch: HandleSearchFunction = async (city: string) => {
     try {
-      const currentWeatherData = await fetchWeatherData(city);
+      const currentWeatherData = await fetchWeatherDataCity(city);
       setWeatherData(currentWeatherData);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -34,10 +36,14 @@ const WeatherData = () => {
 
   return (
     <>
-      <CitySearch onSearch={handleSearch} />
-      <div>
-        {weatherData ? <WeatherDisplay weatherData={weatherData} /> : <div>Data not found</div>}
-      </div>
+      {isLoading ? (
+        <div>
+          <CitySearch onSearch={handleSearch} />
+          {weatherData ? <WeatherDisplay weatherData={weatherData} /> : <div>Data not found</div>}
+        </div>
+      ) : (
+        <div>Loading...</div>
+      )}
     </>
   );
 };
