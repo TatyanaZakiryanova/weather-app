@@ -1,0 +1,32 @@
+import { ReactNode } from 'react';
+import { IoMdPartlySunny, IoMdRainy } from 'react-icons/io';
+import { MdSunny, MdCloud, MdFoggy } from 'react-icons/md';
+
+export const WeatherImage = (weather: string) => {
+  let imageElement: ReactNode;
+  let imageColor: string;
+
+  switch (weather) {
+    case 'Rain':
+      imageElement = <IoMdRainy />;
+      imageColor = '#496a8a';
+      break;
+    case 'Clear':
+      imageElement = <MdSunny />;
+      imageColor = '#f6de7e';
+      break;
+    case 'Clouds':
+      imageElement = <MdCloud />;
+      imageColor = '#496a8a';
+      break;
+    case 'Mist':
+      imageElement = <MdFoggy />;
+      imageColor = '#586c7f';
+      break;
+    default:
+      imageElement = <IoMdPartlySunny />;
+      imageColor = '#28919c';
+  }
+
+  return <span style={{ color: imageColor }}>{imageElement}</span>;
+};

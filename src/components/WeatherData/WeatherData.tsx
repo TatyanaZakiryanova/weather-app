@@ -10,7 +10,7 @@ import NotFound from '../NotFound/NotFound';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const fetchWeatherDataCity = useFetchWeatherDataCity();
 
   useEffect(() => {

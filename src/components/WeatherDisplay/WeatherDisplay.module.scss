@@ -6,7 +6,11 @@
     margin: 30px 0;
     text-align: center;
     h1 {
-      font-size: 3rem;
+      font-size: 2.5rem;
+    }
+    .image {
+      font-size: 8rem;
+      margin-bottom: -20px;
     }
    span {
       margin-bottom: 10px;
@@ -21,11 +25,11 @@
     .humidity,
     .wind,
     .pressure {
-      padding: 0 20px;
+      padding: 0 15px;
     }
     .humidityicon,
     .windicon,
     .pressureicon {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 }
