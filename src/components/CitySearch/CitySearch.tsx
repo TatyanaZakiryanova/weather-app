@@ -1,9 +1,19 @@
 import { KeyboardEventHandler, useState } from 'react';
 import { HandleSearchFunction } from '../WeatherData/types';
 import styles from './CitySearch.module.scss';
+import { IoIosSearch } from 'react-icons/io';
 
 const CitySearch = ({ onSearch }: { onSearch: HandleSearchFunction }) => {
   const [searchCity, setSearchCity] = useState<string>('');
+  const [isFocused, setIsFocused] = useState(false);
+
+  const handleFocus = () => {
+    setIsFocused(true);
+  };
+
+  const handleBlur = () => {
+    setIsFocused(false);
+  };
 
   const handleSearch = () => {
     onSearch(searchCity);
@@ -16,15 +26,17 @@ const CitySearch = ({ onSearch }: { onSearch: HandleSearchFunction }) => {
   };
 
   return (
-    <div>
+    <div className={styles.search}>
       <input
         type="text"
-        placeholder="Enter your city..."
         value={searchCity}
         onChange={(e) => setSearchCity(e.target.value)}
         onKeyUp={handleSearchKey}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
+        placeholder={isFocused ? '' : 'Enter your city...'}
       />
-      <button onClick={handleSearch}>Search</button>
+      <IoIosSearch onClick={handleSearch} className={styles.button} />
     </div>
   );
 };
