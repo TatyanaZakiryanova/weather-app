@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { HandleSearchFunction, IWeatherData } from './types';
-import CitySearch from './CitySearch';
-import WeatherDisplay from './WeatherDisplay';
-import { fetchWeatherDataCity } from './WeatherCity';
-import { fetchWeatherByCoords } from './WeatherCoords';
+import CitySearch from '../CitySearch/CitySearch';
+import WeatherDisplay from '../WeatherDisplay/WeatherDisplay';
+import { fetchWeatherDataCity } from '../WeatherCity/WeatherCity';
+import { fetchWeatherByCoords } from '../WeatherCoords/WeatherCoords';
+import styles from './WeatherData.module.scss';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
@@ -37,7 +38,7 @@ const WeatherData = () => {
   return (
     <>
       {isLoading ? (
-        <div>
+        <div className={styles.container}>
           <CitySearch onSearch={handleSearch} />
           {weatherData ? <WeatherDisplay weatherData={weatherData} /> : <div>Data not found</div>}
         </div>

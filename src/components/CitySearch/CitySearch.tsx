@@ -1,5 +1,6 @@
 import { KeyboardEventHandler, useState } from 'react';
-import { HandleSearchFunction } from './types';
+import { HandleSearchFunction } from '../WeatherData/types';
+import styles from './CitySearch.module.scss';
 
 const CitySearch = ({ onSearch }: { onSearch: HandleSearchFunction }) => {
   const [searchCity, setSearchCity] = useState<string>('');

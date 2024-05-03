@@ -1,4 +1,5 @@
-import { IWeatherData } from './types';
+import { IWeatherData } from '../WeatherData/types';
+import styles from './WeatherDisplay.module.scss';
 
 const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
   return (

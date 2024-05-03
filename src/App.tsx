@@ -1,4 +1,4 @@
-import WeatherData from './components/WeatherData';
+import WeatherData from './components/WeatherData/WeatherData';
 
 const App = () => {
   return <WeatherData />;
