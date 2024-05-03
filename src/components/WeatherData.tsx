@@ -3,12 +3,11 @@ import { HandleSearchFunction, IWeatherData } from './types';
 import axios from 'axios';
 import CitySearch from './CitySearch';
 import WeatherDisplay from './WeatherDisplay';
+import { apiEndpoint, apiKey } from './api';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
-
-  const apiEndpoint = 'https://api.openweathermap.org/data/2.5/';
-  const apiKey = 'ee3f407327bd98a35e64b2a76796d0f0';
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchWeatherData = useCallback(
     async (city: string) => {
