@@ -1,9 +1,8 @@
 .search {
     margin-top: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    width: 100%;
     input {
     border: 1px solid black;
     padding: 8px;
@@ -14,22 +13,31 @@
     &:focus {
         outline: none;
     }
+    @media screen and (max-width: 1024px) {
+      height: 35px;
+    }
   }
   button {
-    font-size: 30px;
+    font-size: 45px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0);
+    color: #496a8a;
     border: none;
     .icon {
       cursor: pointer;
       transition: 0.3s all ease-in-out; 
         &:hover {
-        color: rgb(84, 123, 138);
         transform: scale(1.2);
         -webkit-transform: scale(1.2);
       }
+      &:active {
+        color: white;
+      }
+    }
+    @media screen and (max-width: 1024px) {
+    font-size: 50px;
     }
 }
 }

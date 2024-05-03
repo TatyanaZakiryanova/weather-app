@@ -1,7 +1,7 @@
 import { KeyboardEventHandler, useState } from 'react';
 import { HandleSearchFunction } from '../WeatherData/types';
 import styles from './CitySearch.module.scss';
-import { IoIosSearch } from 'react-icons/io';
+import { IoSearchCircleSharp } from 'react-icons/io5';
 
 const CitySearch = ({ onSearch }: { onSearch: HandleSearchFunction }) => {
   const [searchCity, setSearchCity] = useState<string>('');
@@ -37,7 +37,7 @@ const CitySearch = ({ onSearch }: { onSearch: HandleSearchFunction }) => {
         placeholder={isFocused ? '' : 'Enter your city...'}
       />
       <button onClick={handleSearch}>
-        <IoIosSearch className={styles.icon} />
+        <IoSearchCircleSharp className={styles.icon} />
       </button>
     </div>
   );

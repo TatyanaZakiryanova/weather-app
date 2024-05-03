@@ -25,7 +25,7 @@ export const WeatherImage = (weather: string) => {
       break;
     default:
       imageElement = <IoMdPartlySunny />;
-      imageColor = '#28919c';
+      imageColor = '#496a8a';
   }
 
   return <span style={{ color: imageColor }}>{imageElement}</span>;
