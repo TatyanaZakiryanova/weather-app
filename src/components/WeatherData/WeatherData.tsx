@@ -6,6 +6,7 @@ import { fetchWeatherByCoords } from './WeatherCoords';
 import styles from './WeatherData.module.scss';
 import useFetchWeatherDataCity from './WeatherCity';
 import Spinner from '../Spinner/Spinner';
+import NotFound from '../NotFound/NotFound';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
@@ -43,7 +44,13 @@ const WeatherData = () => {
         {isLoading ? (
           <div>
             <CitySearch onSearch={handleSearch} />
-            {weatherData ? <WeatherDisplay weatherData={weatherData} /> : <div>Data not found</div>}
+            {weatherData ? (
+              <WeatherDisplay weatherData={weatherData} />
+            ) : (
+              <div>
+                <NotFound />
+              </div>
+            )}
           </div>
         ) : (
           <div>
