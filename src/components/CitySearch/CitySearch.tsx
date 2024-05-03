@@ -36,7 +36,9 @@ const CitySearch = ({ onSearch }: { onSearch: HandleSearchFunction }) => {
         onBlur={handleBlur}
         placeholder={isFocused ? '' : 'Enter your city...'}
       />
-      <IoIosSearch onClick={handleSearch} className={styles.button} />
+      <button onClick={handleSearch}>
+        <IoIosSearch className={styles.icon} />
+      </button>
     </div>
   );
 };

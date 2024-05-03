@@ -1,0 +1,31 @@
+.weather {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 30px 0;
+    text-align: center;
+    h1 {
+      font-size: 3rem;
+    }
+   span {
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 2rem;
+    }
+  }
+  .inform {
+    display: flex;
+    text-align: center;
+    .humidity,
+    .wind,
+    .pressure {
+      padding: 0 20px;
+    }
+    .humidityicon,
+    .windicon,
+    .pressureicon {
+      font-size: 2.5rem;
+    }
+}

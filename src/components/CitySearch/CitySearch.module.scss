@@ -15,11 +15,20 @@
         outline: none;
     }
   }
-  .button {
+  button {
     font-size: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    .icon {
+      cursor: pointer;
+      transition: 0.3s all ease-in-out; 
+        &:hover {
+        color: rgb(84, 123, 138);
+        transform: scale(1.2);
+      }
+    }
 }
 }

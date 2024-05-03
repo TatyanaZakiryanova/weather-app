@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { apiEndpoint, apiKey } from '../WeatherData/api';
+import { apiEndpoint, apiKey } from './api';
 
 export const fetchWeatherDataCity = async (city: string) => {
   try {
