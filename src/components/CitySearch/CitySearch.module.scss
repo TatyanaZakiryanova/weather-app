@@ -28,6 +28,7 @@
         &:hover {
         color: rgb(84, 123, 138);
         transform: scale(1.2);
+        -webkit-transform: scale(1.2);
       }
     }
 }
