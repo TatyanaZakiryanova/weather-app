@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { HandleSearchFunction, IWeatherData } from './types';
 import CitySearch from '../CitySearch/CitySearch';
 import WeatherDisplay from '../WeatherDisplay/WeatherDisplay';
-import { fetchWeatherDataCity } from './WeatherCity';
 import { fetchWeatherByCoords } from './WeatherCoords';
 import styles from './WeatherData.module.scss';
+import useFetchWeatherDataCity from './WeatherCity';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const fetchWeatherDataCity = useFetchWeatherDataCity();
 
   useEffect(() => {
     const fetchWeatherByGeolocation = async () => {
