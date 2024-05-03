@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { KeyboardEventHandler, useState } from 'react';
 import { HandleSearchFunction } from './types';
 
 const CitySearch = ({ onSearch }: { onSearch: HandleSearchFunction }) => {
@@ -8,9 +8,21 @@ const CitySearch = ({ onSearch }: { onSearch: HandleSearchFunction }) => {
     onSearch(searchCity);
   };
 
+  const handleSearchKey: KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   return (
     <div>
-      <input type="text" value={searchCity} onChange={(e) => setSearchCity(e.target.value)} />
+      <input
+        type="text"
+        placeholder="Enter your city..."
+        value={searchCity}
+        onChange={(e) => setSearchCity(e.target.value)}
+        onKeyUp={handleSearchKey}
+      />
       <button onClick={handleSearch}>Search</button>
     </div>
   );
