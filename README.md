@@ -1,30 +1,40 @@
-# React + TypeScript + Vite
+# Weather App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Приложение для отображения текущей погоды. Предоставляет основную информацию о погоде: температура, описание погоды, скорость ветра, влажность и давление.
 
-Currently, two official plugins are available:
+<br />
+Link: https://currentweatherdata.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+- Typescript
+- React
+- SCSS (Sass)
+- OpenWeatherMap API
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Preview
 
-- Configure the top-level `parserOptions` property like this:
+<img src="./src/assets/weatherapppreview.PNG" alt="preview">
+
+## Features
+
+- Отображение текущей погоды в городе пользователя при предоставлении разрешения для определения геолокации.
+- Поиск данных о погоде в других городах.
+- Визуализация текущей погоды.
+- Отображение температуры в выбранном городе.
+- Отображение ощущаемой температуры.
+- Отображение данных о скорости ветра, уровне влажности воздуха и уровне атмосферного давления.
+
+## How to start project
+
+in the project directory enter:
 
 ```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+and then
+
+```js
+npm run dev
+```
