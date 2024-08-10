@@ -4,7 +4,7 @@ import CitySearch from '../CitySearch/CitySearch';
 import WeatherDisplay from '../WeatherDisplay/WeatherDisplay';
 import { fetchWeatherByCoords } from './WeatherCoords';
 import styles from './WeatherData.module.scss';
-import useFetchWeatherDataCity from './WeatherCity';
+import useFetchWeatherDataCity from '../WeatherCity/WeatherCity';
 import Spinner from '../Spinner/Spinner';
 import NotFound from '../NotFound/NotFound';
 
@@ -15,6 +15,10 @@ const WeatherData = () => {
 
   useEffect(() => {
     const fetchWeatherByGeolocation = async () => {
+      if (!navigator.geolocation) {
+        console.error('Geolocation is not supported by this browser.');
+        return;
+      }
       try {
         navigator.geolocation.getCurrentPosition(async (position) => {
           const { latitude, longitude } = position.coords;
