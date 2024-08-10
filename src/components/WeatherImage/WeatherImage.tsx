@@ -12,7 +12,7 @@ export const WeatherImage = (weather: string) => {
       imageColor = '#496a8a';
       break;
     case 'Clear':
-      imageElement = <MdSunny />;
+      imageElement = <MdSunny data-testid="MdSunny" />;
       imageColor = '#f6de7e';
       break;
     case 'Clouds':

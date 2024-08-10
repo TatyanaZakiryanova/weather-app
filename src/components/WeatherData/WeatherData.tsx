@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { HandleSearchFunction, IWeatherData } from './types';
 import CitySearch from '../CitySearch/CitySearch';
 import WeatherDisplay from '../WeatherDisplay/WeatherDisplay';
-import { fetchWeatherByCoords } from './WeatherCoords';
+import { fetchWeatherByCoords } from '../WeatherCoords/WeatherCoords';
 import styles from './WeatherData.module.scss';
 import useFetchWeatherDataCity from '../WeatherCity/WeatherCity';
 import Spinner from '../Spinner/Spinner';
