@@ -31,7 +31,7 @@ const WeatherData = () => {
       }
     };
     fetchWeatherByGeolocation();
-  }, [fetchWeatherByCoords]);
+  }, []);
 
   const handleSearch: HandleSearchFunction = async (city: string) => {
     try {

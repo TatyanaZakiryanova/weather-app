@@ -2,13 +2,13 @@ import { fireEvent, render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import CitySearch from './CitySearch';
 
+const mockOnSearch = jest.fn();
+
+beforeEach(() => {
+  mockOnSearch.mockClear();
+});
+
 describe('CitySearch component', () => {
-  const mockOnSearch = jest.fn();
-
-  beforeEach(() => {
-    mockOnSearch.mockClear();
-  });
-
   test('renders correctly with initial state', () => {
     render(<CitySearch onSearch={mockOnSearch} />);
     const inputElement = screen.getByPlaceholderText(/Enter your city.../i);
