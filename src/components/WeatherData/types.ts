@@ -20,3 +20,8 @@ export interface IWeatherData {
 export type HandleSearchFunction = (city: string) => Promise<void>;
 
 export type WeatherCityFunction = (city: string) => Promise<IWeatherData | null>;
+
+export type FetchWeatherByCoordsFunction = (
+  latitude: number,
+  longitude: number,
+) => Promise<IWeatherData | null>;

@@ -1,11 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 import { apiEndpoint, apiKey } from '../WeatherData/api';
-import { IWeatherData } from '../WeatherData/types';
+import { FetchWeatherByCoordsFunction, IWeatherData } from '../WeatherData/types';
 
-export const fetchWeatherByCoords = async (
-  latitude: number,
-  longitude: number,
-): Promise<IWeatherData | null> => {
+export const fetchWeatherByCoords: FetchWeatherByCoordsFunction = async (latitude, longitude) => {
   try {
     const response: AxiosResponse<IWeatherData> = await axios.get(
       `${apiEndpoint}weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`,
