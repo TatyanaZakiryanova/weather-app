@@ -1,11 +1,9 @@
-import { PiDropLight, PiWindLight } from 'react-icons/pi';
 import { IWeatherData } from '../WeatherData/types';
 import styles from './WeatherDisplay.module.scss';
-import { HiArrowSmallDown } from 'react-icons/hi2';
 import { WeatherImage } from '../WeatherImage/WeatherImage';
-import { FaTachometerAlt, FaWind } from 'react-icons/fa';
+import { FaWind } from 'react-icons/fa';
 import { MdWaterDrop } from 'react-icons/md';
-import { FiBarChart, FiDroplet } from 'react-icons/fi';
+import { FiBarChart } from 'react-icons/fi';
 
 const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
   return (
