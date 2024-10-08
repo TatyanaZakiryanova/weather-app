@@ -11,6 +11,11 @@
     .image {
       font-size: 8rem;
       margin-bottom: -20px;
+      transition: transform 0.2s, opacity 0.2s;
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
     }
    span {
       margin-bottom: 10px;
@@ -31,5 +36,12 @@
     .windicon,
     .pressureicon {
       font-size: 2rem;
+      color: #37618b;
+      opacity: 0.8;
+      transition: transform 0.2s, opacity 0.2s;
+      &:hover {
+        transform: scale(1.1);
+        opacity: 1;
+      }
     }
 }

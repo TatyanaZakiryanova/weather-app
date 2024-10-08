@@ -3,6 +3,9 @@ import { IWeatherData } from '../WeatherData/types';
 import styles from './WeatherDisplay.module.scss';
 import { HiArrowSmallDown } from 'react-icons/hi2';
 import { WeatherImage } from '../WeatherImage/WeatherImage';
+import { FaTachometerAlt, FaWind } from 'react-icons/fa';
+import { MdWaterDrop } from 'react-icons/md';
+import { FiBarChart, FiDroplet } from 'react-icons/fi';
 
 const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
   return (
@@ -20,7 +23,7 @@ const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
 
       <div className={styles.inform}>
         <div className={styles.wind}>
-          <PiWindLight className={styles.windicon} />
+          <FaWind className={styles.windicon} />
           <div>
             <h2>{weatherData.wind.speed}km/h</h2>
             <p>Wind speed</p>
@@ -28,7 +31,7 @@ const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
         </div>
 
         <div className={styles.humidity}>
-          <PiDropLight className={styles.humidityicon} />
+          <MdWaterDrop className={styles.humidityicon} />
           <div>
             <h2>{weatherData.main.humidity}%</h2>
             <p>Humidity</p>
@@ -36,7 +39,7 @@ const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
         </div>
 
         <div className={styles.pressure}>
-          <HiArrowSmallDown className={styles.pressureicon} />
+          <FiBarChart className={styles.pressureicon} />
           <h2>{weatherData.main.pressure} hPa</h2>
           <p>Pressure</p>
         </div>
