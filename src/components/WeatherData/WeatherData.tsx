@@ -2,16 +2,15 @@ import { useEffect, useState } from 'react';
 import { HandleSearchFunction, IWeatherData } from './types';
 import CitySearch from '../CitySearch/CitySearch';
 import WeatherDisplay from '../WeatherDisplay/WeatherDisplay';
-import { fetchWeatherByCoords } from '../WeatherCoords/WeatherCoords';
 import styles from './WeatherData.module.scss';
-import useFetchWeatherDataCity from '../WeatherCity/WeatherCity';
 import Spinner from '../Spinner/Spinner';
 import NotFound from '../NotFound/NotFound';
+import { fetchWeatherByCoords } from '../../utils/WeatherCoords/WeatherCoords';
+import fetchWeatherDataCity from '../../utils/WeatherCity/WeatherCity';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const fetchWeatherDataCity = useFetchWeatherDataCity();
 
   useEffect(() => {
     const fetchWeatherByGeolocation = async () => {

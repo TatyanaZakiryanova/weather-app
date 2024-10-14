@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
-import { apiEndpoint, apiKey } from '../WeatherData/api';
-import { FetchWeatherByCoordsFunction, IWeatherData } from '../WeatherData/types';
+import { FetchWeatherByCoordsFunction, IWeatherData } from '../../components/WeatherData/types';
+import { apiEndpoint, apiKey } from '../../components/WeatherData/api';
 
 export const fetchWeatherByCoords: FetchWeatherByCoordsFunction = async (latitude, longitude) => {
   try {
