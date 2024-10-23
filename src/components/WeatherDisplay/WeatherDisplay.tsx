@@ -22,7 +22,7 @@ const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
 
       <div className={styles.inform}>
         <div className={styles.wind}>
-          <FaWind className={styles.windicon} />
+          <FaWind className={styles.windIcon} />
           <div>
             <h2>{weatherData.wind.speed}km/h</h2>
             <p>Wind speed</p>
@@ -30,7 +30,7 @@ const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
         </div>
 
         <div className={styles.humidity}>
-          <MdWaterDrop className={styles.humidityicon} />
+          <MdWaterDrop className={styles.humidityIcon} />
           <div>
             <h2>{weatherData.main.humidity}%</h2>
             <p>Humidity</p>
@@ -38,7 +38,7 @@ const WeatherDisplay = ({ weatherData }: { weatherData: IWeatherData }) => {
         </div>
 
         <div className={styles.pressure}>
-          <FiBarChart className={styles.pressureicon} />
+          <FiBarChart className={styles.pressureIcon} />
           <h2>{weatherData.main.pressure} hPa</h2>
           <p>Pressure</p>
         </div>

@@ -1,6 +1,8 @@
 import { KeyboardEventHandler, useState } from 'react';
 import { IoSearchCircleSharp } from 'react-icons/io5';
 
+import Button from '../UI/Button/Button';
+import Input from '../UI/Input/Input';
 import styles from './CitySearch.module.scss';
 
 interface CitySearchProps {
@@ -29,7 +31,7 @@ const CitySearch: React.FC<CitySearchProps> = ({ onSearch }) => {
 
   return (
     <div className={styles.search}>
-      <input
+      <Input
         type="text"
         value={searchCity}
         onChange={(e) => setSearchCity(e.target.value)}
@@ -38,9 +40,9 @@ const CitySearch: React.FC<CitySearchProps> = ({ onSearch }) => {
         onBlur={() => handleFocusBlur(false)}
         placeholder={isFocused ? '' : 'Enter your city...'}
       />
-      <button onClick={handleSearch}>
-        <IoSearchCircleSharp className={styles.icon} />
-      </button>
+      <Button onClick={handleSearch} className={styles.searchButton}>
+        <IoSearchCircleSharp />
+      </Button>
     </div>
   );
 };

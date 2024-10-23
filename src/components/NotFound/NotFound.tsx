@@ -5,8 +5,7 @@ import styles from './NotFound.module.scss';
 const NotFound = () => {
   return (
     <div className={styles.error}>
-      <PiWarningCircleLight className={styles.erroricon} data-testid="icon-element" />
-      <br />
+      <PiWarningCircleLight className={styles.errorIcon} data-testid="icon-element" />
       <p>No weather data found</p>
     </div>
   );
