@@ -1,0 +1,17 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  color: #37618b;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+  }
+  &:active {
+    color: white;
+  }
+}
