@@ -4,34 +4,34 @@ import fetchWeatherDataCity from '../../utils/WeatherCity/WeatherCity';
 import { fetchWeatherByCoords } from '../../utils/WeatherCoords/WeatherCoords';
 import CitySearch from '../CitySearch/CitySearch';
 import NotFound from '../NotFound/NotFound';
-import Spinner from '../Spinner/Spinner';
+import Spinner from '../UI/Spinner/Spinner';
 import WeatherDisplay from '../WeatherDisplay/WeatherDisplay';
 import { HandleSearchFunction, IWeatherData } from './types';
 import styles from './WeatherData.module.scss';
 
 const WeatherData = () => {
   const [weatherData, setWeatherData] = useState<IWeatherData | null>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoaded, setIsLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    const fetchWeatherByGeolocation = async () => {
+    const fetchWeatherByGeolocation = () => {
       if (!navigator.geolocation) {
         console.error('Geolocation is not supported by this browser.');
         return;
       }
-      try {
-        navigator.geolocation.getCurrentPosition(async (position) => {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        try {
           const { latitude, longitude } = position.coords;
-          const [currentWeather] = await Promise.all([fetchWeatherByCoords(latitude, longitude)]);
+          const currentWeather = await fetchWeatherByCoords(latitude, longitude);
           setWeatherData(currentWeather);
-          setIsLoading(true);
-        });
-      } catch (error) {
-        console.error('Error fetching weather by geolocation:', error);
-      }
+          setIsLoaded(true);
+        } catch (error) {
+          console.error('Error fetching weather by geolocation:', error);
+        }
+      });
     };
     fetchWeatherByGeolocation();
-  }, []);
+  }, [setWeatherData, setIsLoaded]);
 
   const handleSearch: HandleSearchFunction = async (city: string) => {
     try {
@@ -43,26 +43,16 @@ const WeatherData = () => {
   };
 
   return (
-    <>
-      <div className={styles.container}>
-        {isLoading ? (
-          <div>
-            <CitySearch onSearch={handleSearch} />
-            {weatherData ? (
-              <WeatherDisplay weatherData={weatherData} />
-            ) : (
-              <div>
-                <NotFound />
-              </div>
-            )}
-          </div>
-        ) : (
-          <div>
-            <Spinner />
-          </div>
-        )}
-      </div>
-    </>
+    <div className={styles.container}>
+      {isLoaded ? (
+        <div>
+          <CitySearch onSearch={handleSearch} />
+          {weatherData ? <WeatherDisplay weatherData={weatherData} /> : <NotFound />}
+        </div>
+      ) : (
+        <Spinner />
+      )}
+    </div>
   );
 };
 
