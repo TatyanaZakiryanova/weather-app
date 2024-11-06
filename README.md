@@ -2,7 +2,7 @@
 
 Приложение погоды.
 
-[Deploy](https://currentweatherdata.netlify.app/)
+[Deploy](https://tatyanazakiryanova.github.io/Weather-App/)
 
 <img src="./src/assets/weatherapp-preview.png" alt="preview">
 
