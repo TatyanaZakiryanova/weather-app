@@ -40,7 +40,7 @@ const CitySearch: React.FC<CitySearchProps> = ({ onSearch }) => {
         onBlur={() => handleFocusBlur(false)}
         placeholder={isFocused ? '' : 'Enter your city...'}
       />
-      <Button onClick={handleSearch} className={styles.searchButton}>
+      <Button onClick={handleSearch} className={styles.searchButton} disabled={!searchCity}>
         <IoSearchCircleSharp />
       </Button>
     </div>

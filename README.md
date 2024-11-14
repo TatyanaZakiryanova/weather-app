@@ -26,12 +26,13 @@
 ### Loading & Error Handling
 
 - Спиннер при загрузке
-- Сообщение "No weather data found" при ошибке или пустом запросе
+- Сообщение "No weather data found" при ошибке
 
 ### Styling and Responsiveness
 
 - Адаптивная вёрстка до 360px ширины экрана (SCSS модули)
 - React-icons для визуализации погоды
+- Кнопка поиска неактивна при пустом запросе
 
 ### Testing
 
