@@ -2,7 +2,7 @@
 
 Приложение погоды.
 
-[Deploy](https://tatyanazakiryanova.github.io/Weather-App/)
+[Deploy](https://tatyanazakiryanova.github.io/weather-app/)
 
 <img src="./src/assets/weatherapp-preview.png" alt="preview">
 
