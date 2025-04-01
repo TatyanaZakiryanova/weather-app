@@ -5,13 +5,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  .loadingIcon {
-    font-size: 3rem;
-    animation: spin 2s linear infinite;
-  }
-  p {
-    margin-top: 10px;
-  }
+}
+.loadingIcon {
+  font-size: 3rem;
+  animation: spin 2s linear infinite;
+}
+
+p {
+  margin-top: 10px;
 }
 
 @keyframes spin {

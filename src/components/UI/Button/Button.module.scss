@@ -7,14 +7,17 @@
   border: none;
   cursor: pointer;
   transition: 0.3s all ease-in-out;
+
   &:hover {
     transform: scale(1.2);
     -webkit-transform: scale(1.2);
   }
+
   &:active {
-    color: white;
+    color: #ffffff;
   }
+
   &:disabled {
-    color: rgba(111, 111, 111, 0.5);
+    color: #6f6f6f80;
   }
 }
